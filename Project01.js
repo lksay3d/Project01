@@ -160,3 +160,53 @@ class Word00Factory extends GUIFactory{
         return new Word00Textbox();
     }
 }
+
+//Word10 Abstract Factory
+class Word10Factory extends GUIFactory{
+    static instance;
+
+    static getInstance(){
+        if (!this.instance){
+            this.instance = new Word10Factory();
+        }
+
+        return this.instance;
+    }
+
+    createPanel(){
+        return new Word10Panel();
+    }
+
+    createButton(){
+        return new Word10Button();
+    }
+
+    createTextbox(){
+        return new Word10Textbox();
+    }
+}
+
+//Word24 Abstract Factory
+class Word24Factory extends GUIFactory{
+    static instance;
+
+    static getInstance(){
+        if (!this.instance){
+            this.instance = new Word90Factory();
+        }
+
+        return this.instance;
+    }
+
+    createPanel(){
+        return new Word24Panel();
+    }
+
+    createButton(){
+        return new Word24Button();
+    }
+
+    createTextbox(){
+        return new Word24Textbox();
+    }
+}
