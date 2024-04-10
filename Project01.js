@@ -115,12 +115,25 @@ class GUIFactory{
 class Word90Factory extends GUIFactory{
     static instance;
 
+    static useCount = 0;
+    static maxUses = 2;
+
     static getInstance(){
         if (!this.instance){
             this.instance = new Word90Factory();
         }
 
-        return this.instance;
+        if(this.useCount < this.maxUses){
+            this.useCount++;
+
+            return this.instance;
+        }
+
+        else{
+            console.warn("Word90Factory instance use limit reached.");
+
+            return null;
+        }
     }
 
     createPanel(){
@@ -139,6 +152,9 @@ class Word90Factory extends GUIFactory{
 //Word00 Abstract Factory
 class Word00Factory extends GUIFactory{
     static instance;
+
+    static useCount = 0;
+    static maxUses = 2;
 
     static getInstance(){
         if (!this.instance){
@@ -165,6 +181,9 @@ class Word00Factory extends GUIFactory{
 class Word10Factory extends GUIFactory{
     static instance;
 
+    static useCount = 0;
+    static maxUses = 2;
+
     static getInstance(){
         if (!this.instance){
             this.instance = new Word10Factory();
@@ -189,6 +208,9 @@ class Word10Factory extends GUIFactory{
 //Word24 Abstract Factory
 class Word24Factory extends GUIFactory{
     static instance;
+
+    static useCount = 0;
+    static maxUses = 2;
 
     static getInstance(){
         if (!this.instance){
