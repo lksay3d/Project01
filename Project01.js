@@ -94,3 +94,69 @@ class Word24Textbox extends Textbox{
         console.log("Typing in a Textbox for Word24");
     }
 }
+
+//defining abstract factory classes
+class GUIFactory{
+    createPanel()
+    {
+        throw new Error("Method 'createPanel()' must be implemented.");
+    }
+
+    createButton(){
+        throw new Error("Method 'createButton()' must be implemented.");
+    }
+
+    createTextbox(){
+        throw new Error("Method 'createTextbox()' must be implemented.");
+    }
+}
+
+//Word90 Abstract Factory
+class Word90Factory extends GUIFactory{
+    static instance;
+
+    static getInstance(){
+        if (!this.instance){
+            this.instance = new Word90Factory();
+        }
+
+        return this.instance;
+    }
+
+    createPanel(){
+        return new Word90Panel();
+    }
+
+    createButton(){
+        return new Word90Button();
+    }
+
+    createTextbox(){
+        return new Word90Textbox();
+    }
+}
+
+//Word00 Abstract Factory
+class Word00Factory extends GUIFactory{
+    static instance;
+
+    static getInstance(){
+        if (!this.instance){
+            this.instance = new Word00Factory();
+        }
+
+        return this.instance;
+    }
+
+    createPanel(){
+        return new Word00Panel();
+    }
+
+    createButton(){
+        return new Word00Button();
+    }
+
+    createTextbox(){
+        return new Word00Textbox();
+    }
+}
