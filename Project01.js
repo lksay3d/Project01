@@ -262,3 +262,52 @@ class Word24Factory extends GUIFactory{
         return new Word24Textbox();
     }
 }
+
+const configurations = ['Word90', 'Word00', 'Word90', 'Word24', 'Word10', 'Word00', 'Word24', 'Word90', 'Word00'];
+
+class TestManager{
+    constructor(){
+        this.factories = {
+            'Word90': Word90Factory,
+            'Word00': Word00Factory,
+            'Word10': Word10Factory,
+            'Word24': Word24Factory,
+        };
+    }
+
+    runTests(){
+        configurations.forEach(version => {
+            const factory = this.getFactory(version);
+
+            if(factory){
+                const panel = factory.createPanel();
+                const button = factory.createButton();
+                const textbox = factory.createTextbox();
+
+                panel?.draw();
+                button?.click();
+                textbox?.type();
+            }
+
+            else{
+                console.warn(`Test skipped for ${version}. Instance limit reached.`)
+            }
+        });
+
+        Object.values(this.factories).forEach(factory => {
+            if(factory){
+                factory.useCount = 0;
+            }
+        });
+    }
+
+    getFactory(version){
+        const factoryClass = this.factories[version];
+        
+        return factoryClass ? factoryClass.getInstance():null;
+    }
+}
+
+const testManager = new TestManager();
+
+testManager.runTests();
