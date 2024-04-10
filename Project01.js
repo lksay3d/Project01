@@ -276,7 +276,10 @@ class TestManager{
     }
 
     runTests(){
-        configurations.forEach(version => {
+        configurations.forEach((version, index) => {
+//adding a separator for visibility & clarity :)
+            console.log(`\n=== Text for ${version} ===`);
+
             const factory = this.getFactory(version);
 
             if(factory){
@@ -291,6 +294,11 @@ class TestManager{
 
             else{
                 console.warn(`Test skipped for ${version}. Instance limit reached.`)
+            }
+
+//just adding space
+            if(index < configurations.length - 1){
+                console.log("\n");
             }
         });
 
