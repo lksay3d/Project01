@@ -56,3 +56,41 @@ class Word00Textbox extends Textbox{
         console.log("Typing in a Textbox for Word00");
     }
 }
+
+//Word10 Concrete Products
+class Word10Panel extends Panel{
+    draw(){
+        console.log("Drawing a Panel for Word10");
+    }
+}
+
+class Word10Button extends Button{
+    click(){
+        console.log("Clicking a Button for Word10");
+    }
+}
+
+class Word10Textbox extends Textbox{
+    type(){
+        console.log("Typing in a Textbox for Word10");
+    }
+}
+
+//Word24 Concrete Products
+class Word24Panel extends Panel{
+    draw(){
+        console.log("Drawing a Panel for Word24");
+    }
+}
+
+class Word24Button extends Button{
+    click(){
+        console.log("Clicking a Button for Word24");
+    }
+}
+
+class Word24Textbox extends Textbox{
+    type(){
+        console.log("Typing in a Textbox for Word24");
+    }
+}
