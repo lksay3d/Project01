@@ -161,7 +161,17 @@ class Word00Factory extends GUIFactory{
             this.instance = new Word00Factory();
         }
 
-        return this.instance;
+        if(this.useCount < this.maxUses){
+            this.useCount++;
+
+            return this.instance;
+        }
+
+        else{
+            console.warn("Word00Factory instance use limit reached.");
+
+            return null;
+        }
     }
 
     createPanel(){
@@ -189,7 +199,17 @@ class Word10Factory extends GUIFactory{
             this.instance = new Word10Factory();
         }
 
-        return this.instance;
+        if(this.useCount < this.maxUses){
+            this.useCount++;
+
+            return this.instance;
+        }
+
+        else{
+            console.warn("Word10Factory instance use limit reached.");
+
+            return null;
+        }
     }
 
     createPanel(){
@@ -214,10 +234,20 @@ class Word24Factory extends GUIFactory{
 
     static getInstance(){
         if (!this.instance){
-            this.instance = new Word90Factory();
+            this.instance = new Word24Factory();
         }
 
-        return this.instance;
+        if(this.useCount < this.maxUses){
+            this.useCount++;
+
+            return this.instance;
+        }
+
+        else{
+            console.warn("Word24Factory instance use limit reached.");
+
+            return null;
+        }
     }
 
     createPanel(){
